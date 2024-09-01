@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Ordenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="button-container">
+        <button id="generateOrderBtn">Generar Orden</button>
+        
+    </div>
+
+    <div id="orderSections" style="display: none;">
+        <h2>Seleccione una categoría</h2>
+        <button class="categoryBtn" onclick="showCategory('comida')">Comida</button>
+        <button class="categoryBtn" onclick="showCategory('bebida')">Bebida</button>
+
+        <div id="comidaSection" class="categorySection" style="display: none;">
+            <h3>Comida</h3>
+            <select id="comidaOptions">
+                <option value="Tacos">Tacos</option>
+                <option value="Tacos Surtidos">Tacos Surtidos</option>
+                <option value="Tacos de Puerco y Chistorra">Tacos de Puerco y Chistorra</option>
+                <option value="Tacos de Puerco y Chorizo">Tacos de Puerco y Chorizo</option>
+                <option value="Gringa de Puerco">Gringa de Puerco</option>
+                <option value="Gringa Surtida">Gringa Surtida</option>
+                <option value="Gringa de Puerco y Chistorra">Gringa de Puerco y Chistorra</option>
+                <option value="Gringa de Puerco y Chorizo">Gringa de Puerco y Chorizo</option>
+                <option value="Torta">Torta</option>
+                <option value="Torta Surtida">Torta Surtida</option>
+                <option value="Torta de Puerco y Chistorra">Torta de Puerco y Chistorra</option>
+                <option value="Torta de Puerco y Chorizo">Torta de Puerco y Chorizo</option>
+                <option value="Torta Surtida Especial">Torta Surtida Especial</option>
+                <option value="Tranca">Tranca</option>
+                <option value="Tranca Surtida">Tranca Surtida</option>
+                <option value="Tranca de Puerco y Chistorra">Tranca de Puerco y Chistorra</option>
+                <option value="Tranca de Puerco y Chorizo">Tranca de Puerco y Chorizo</option>
+                <option value="Tranca Surtida Especial">Tranca Surtida Especial</option>
+
+            </select>
+            <input type="number" id="comidaQuantity" placeholder="Cantidad" min="1" value="1">
+            <button onclick="addProduct('comida')">Agregar Producto</button>
+        </div>
+
+        <div id="bebidaSection" class="categorySection" style="display: none;">
+            <h3>Bebida</h3>
+            <select id="bebidaOptions">
+                <option value="Coca Cola">Coca Cola</option>
+                <option value="Licuado de Chocomilk">Licuado de ChocoMilk</option>
+                <option value="Licuado de Fresa">Licuado de Fresa</option>
+                <option value="Licuado de Platano">Licuado de Platano</option>
+
+
+            </select>
+            <input type="number" id="bebidaQuantity" placeholder="Cantidad" min="1" value="1">
+            <button onclick="addProduct('bebida')">Agregar Producto</button>
+        </div>
+
+        <div id="orderSummary">
+            <h3>TAQUERIA GOMEZ - Orden</h3>
+            <ul id="orderList"></ul>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="generatePdfBtn">Generar PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
