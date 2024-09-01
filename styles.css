@@ -1,0 +1,304 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#generateOrderBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.categoryBtn {
+    margin: 10px 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.categorySection {
+    margin-top: 20px;
+}
+
+select, input[type="number"] {
+    margin: 10px 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#orderSummary {
+    margin-top: 30px;
+}
+
+
+/* Estilo básico del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Contenedor principal */
+#orderSections {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Secciones de categoría */
+.categorySection {
+    margin-top: 20px;
+}
+
+select, input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+
+/* Lista de productos */
+#orderList {
+    list-style: none;
+    padding: 0;
+}
+
+#orderList li {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#orderList li button {
+    background-color: #dc3545;
+}
+
+#orderList li button:hover {
+    background-color: #c82333;
+}
+
+/* Resumen de la orden */
+#orderSummary {
+    margin-top: 20px;
+}
+
+#totalContainer {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Formulario de selección de categoría */
+.categoryBtn {
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    color: black;
+    font-weight: 800;
+}
+
+.categoryBtn:hover {
+    background-color: #e2e6ea;
+}
+
+
+/* Estilo básico del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Contenedor principal */
+#orderSections {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Secciones de categoría */
+.categorySection {
+    margin-top: 20px;
+}
+
+select, input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: calc(100% - 22px); /* Ajustar para móviles */
+    box-sizing: border-box;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+
+/* Lista de productos */
+#orderList {
+    list-style: none;
+    padding: 0;
+}
+
+#orderList li {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#orderList li button {
+    background-color: #dc3545;
+}
+
+#orderList li button:hover {
+    background-color: #c82333;
+}
+
+/* Resumen de la orden */
+#orderSummary {
+    margin-top: 20px;
+}
+
+#totalContainer {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Formulario de selección de categoría */
+.categoryBtn {
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.categoryBtn:hover {
+    background-color: #e2e6ea;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    #orderSections {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    select, input[type="number"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #orderList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #orderList li button {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+
+/* Estilo de los botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 10px auto; /* Añadido para centrar y dar margen */
+    display: block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor de botones */
+.button-container {
+    text-align: center;
+    margin-top: 20px; /* Espacio superior */
+}
