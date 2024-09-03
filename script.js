@@ -105,52 +105,62 @@ document.getElementById('generatePdfBtn').addEventListener('click', function() {
         return;
     }
 
-    const doc = new jsPDF();
-    let yPosition = 20;
+    const doc = new jsPDF({ unit: 'mm', format: [80, 150] }); // Ajuste del tamaño del ticket
+    let yPosition = 10;
 
     // Encabezado del negocio
-    doc.setFontSize(16);
-    doc.setFont('Arial', 'bold');
-    doc.text('TAQUERIA GOMEZ', 105, yPosition, { align: 'center' });
-    yPosition += 15;
+    doc.setFontSize(14);
+    doc.setFont('courier', 'bold'); // Fuente monoespaciada
+    doc.text('*** TAQUERIA GOMEZ ***', 40, yPosition, { align: 'center' });
+    yPosition += 10;
 
     // Número de contacto
-    doc.setFontSize(12);
-    doc.setFont('Arial', 'normal');
-    doc.text('Número de teléfono: 982 130 3504', 105, yPosition, { align: 'center' });
+    doc.setFontSize(10);
+    doc.setFont('courier', 'normal');
+    doc.text('Tel: 982 130 3504', 40, yPosition, { align: 'center' });
+    yPosition += 5;
+
+    // Línea separadora
+    doc.text('--------------------------------', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
     // Detalles de la orden
-    doc.setFontSize(12);
-    doc.setFont('Arial', 'normal');
-    doc.text('Orden:', 20, yPosition);
-    yPosition += 10;
+    doc.text('Orden:', 10, yPosition);
+    yPosition += 7;
 
     orderItems.forEach(item => {
-        doc.text(`${item.quantity} x ${item.product} - $${item.price.toFixed(2)}`, 20, yPosition);
-        yPosition += 8;
+        doc.text(`${item.quantity} x ${item.product}`, 10, yPosition);
+        doc.text(`$${item.price.toFixed(2)}`, 70, yPosition, { align: 'right' });
+        yPosition += 7;
     });
 
-    // Total de la compra
+    // Línea separadora
+    yPosition += 5;
+    doc.text('--------------------------------', 40, yPosition, { align: 'center' });
     yPosition += 10;
-    doc.setFontSize(14);
-    doc.setFont('Arial', 'bold');
-    doc.text(`TOTAL DE LA COMPRA: $${total.toFixed(2)} MXN`, 20, yPosition);
+
+    // Total de la compra
+    doc.setFontSize(12);
+    doc.setFont('courier', 'bold');
+    doc.text(`TOTAL: $${total.toFixed(2)} MXN`, 10, yPosition);
 
     // Nombre de la persona que ordenó
-    yPosition += 20;
-    doc.setFontSize(12);
-    doc.setFont('Arial', 'normal');
-    doc.text(`Titular de la orden: ${name}`, 20, yPosition);
+    yPosition += 10;
+    doc.setFontSize(10);
+    doc.setFont('courier', 'normal');
+    doc.text(`Titular: ${name}`, 10, yPosition);
+
+    // Línea separadora
+    yPosition += 10;
+    doc.text('--------------------------------', 40, yPosition, { align: 'center' });
 
     // Mensaje de agradecimiento
-    yPosition += 20;
-    doc.setFontSize(12);
-    doc.setFont('Arial', 'italic');
-    doc.text('Gracias por su compra.', 105, yPosition, { align: 'center' });
+    yPosition += 10;
+    doc.setFontSize(10);
+    doc.setFont('courier', 'italic');
+    doc.text('Gracias por su compra!', 40, yPosition, { align: 'center' });
 
     // Guardar el PDF con el nombre en el formato solicitado
     const fileName = `ORDEN-TAQUERIA-${name}.pdf`;
     doc.save(fileName);
 });
-
