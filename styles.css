@@ -1,13 +1,13 @@
-/* General Styles */
+/* nuevos estilos */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fdf5e6; /* Fondo cálido y acogedor */
-    color: #333; /* Texto en color oscuro para buena legibilidad */
+    background-color: #fdf5e6; 
+    color: #333; 
 }
 
-/* Contenedores Principales */
+
 #orderSections {
     width: 90%;
     max-width: 800px;
@@ -18,19 +18,19 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Tipografía */
+
 h2, h3 {
     text-align: center;
-    color: #e67e22; /* Naranja para destacar los títulos */
+    color: #e67e22; 
 }
 
-/* Botones Generales */
+
 button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #e67e22; /* Naranja para botones */
+    background-color: #e67e22;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -39,12 +39,12 @@ button {
 }
 
 button:hover {
-    background-color: #d35400; /* Naranja más oscuro en hover */
+    background-color: #d35400; 
 }
 
-/* Botones de Categoría */
+
 .categoryBtn {
-    background-color: #d35400; /* Azul para botones de categoría */
+    background-color: #d35400; 
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -56,16 +56,16 @@ button:hover {
 }
 
 .categoryBtn:hover {
-    background-color: #bf8a67; /* Azul más oscuro en hover */
+    background-color: #bf8a67; /
 }
 
-/* Sección de Categorías */
+
 .categorySection {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Formularios de Selección */
+
 input[type="number"], select {
     padding: 10px;
     font-size: 16px;
@@ -77,9 +77,9 @@ input[type="number"], select {
     box-sizing: border-box;
 }
 
-/* Resumen de la Orden */
+
 #orderSummary {
-    background-color: #fff3e0; /* Fondo cálido para el resumen */
+    background-color: #fff3e0; 
     padding: 20px;
     border-radius: 10px;
     margin: 20px auto;
@@ -94,10 +94,10 @@ input[type="number"], select {
 
 #orderList li {
     padding: 10px;
-    border-bottom: 1px solid #e67e22; /* Línea en naranja para los items */
+    border-bottom: 1px solid #e67e22; 
 }
 
-/* Estilos Responsivos */
+
 @media (max-width: 768px) {
     #orderSections {
         width: 95%;
