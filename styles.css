@@ -1,155 +1,13 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
-
-#generateOrderBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-.categoryBtn {
-    margin: 10px 5px;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.categorySection {
-    margin-top: 20px;
-}
-
-select, input[type="number"] {
-    margin: 10px 5px;
-    padding: 5px;
-    font-size: 16px;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#orderSummary {
-    margin-top: 30px;
-}
-
-
-/* Estilo básico del cuerpo */
-body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #343a40;
+    background-color: #fdf5e6; /* Fondo cálido y acogedor */
+    color: #333; /* Texto en color oscuro para buena legibilidad */
 }
 
-/* Contenedor principal */
-#orderSections {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Botones */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    background-color: #007bff;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Secciones de categoría */
-.categorySection {
-    margin-top: 20px;
-}
-
-select, input[type="number"] {
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-input[type="number"] {
-    width: 80px;
-}
-
-/* Lista de productos */
-#orderList {
-    list-style: none;
-    padding: 0;
-}
-
-#orderList li {
-    padding: 10px;
-    border-bottom: 1px solid #dee2e6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#orderList li button {
-    background-color: #dc3545;
-}
-
-#orderList li button:hover {
-    background-color: #c82333;
-}
-
-/* Resumen de la orden */
-#orderSummary {
-    margin-top: 20px;
-}
-
-#totalContainer {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* Formulario de selección de categoría */
-.categoryBtn {
-    padding: 10px 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-    color: black;
-    font-weight: 800;
-}
-
-.categoryBtn:hover {
-    background-color: #e2e6ea;
-}
-
-
-/* Estilo básico del cuerpo */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #343a40;
-}
-
-/* Contenedor principal */
+/* Contenedores Principales */
 #orderSections {
     width: 90%;
     max-width: 800px;
@@ -160,87 +18,83 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Botones */
+/* Tipografía */
+h2, h3 {
+    text-align: center;
+    color: #e67e22; /* Naranja para destacar los títulos */
+}
+
+/* Botones Generales */
 button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    color: #ffffff;
-    background-color: #007bff;
+    color: #fff;
+    background-color: #e67e22; /* Naranja para botones */
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px auto;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #d35400; /* Naranja más oscuro en hover */
 }
 
-/* Secciones de categoría */
-.categorySection {
-    margin-top: 20px;
-}
-
-select, input[type="number"] {
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
+/* Botones de Categoría */
+.categoryBtn {
+    background-color: #d35400; /* Azul para botones de categoría */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     font-size: 16px;
-    margin-right: 10px;
-    width: calc(100% - 22px); /* Ajustar para móviles */
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.categoryBtn:hover {
+    background-color: #bf8a67; /* Azul más oscuro en hover */
+}
+
+/* Sección de Categorías */
+.categorySection {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Formularios de Selección */
+input[type="number"], select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
     box-sizing: border-box;
 }
 
-input[type="number"] {
-    width: 80px;
+/* Resumen de la Orden */
+#orderSummary {
+    background-color: #fff3e0; /* Fondo cálido para el resumen */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Lista de productos */
 #orderList {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 #orderList li {
     padding: 10px;
-    border-bottom: 1px solid #dee2e6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#orderList li button {
-    background-color: #dc3545;
-}
-
-#orderList li button:hover {
-    background-color: #c82333;
-}
-
-/* Resumen de la orden */
-#orderSummary {
-    margin-top: 20px;
-}
-
-#totalContainer {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* Formulario de selección de categoría */
-.categoryBtn {
-    padding: 10px 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.categoryBtn:hover {
-    background-color: #e2e6ea;
+    border-bottom: 1px solid #e67e22; /* Línea en naranja para los items */
 }
 
 /* Estilos Responsivos */
@@ -250,15 +104,21 @@ input[type="number"] {
         padding: 15px;
     }
 
-    button {
-        width: 100%;
-        padding: 12px;
-        font-size: 18px;
+    h2, h3 {
+        font-size: 20px;
     }
 
-    select, input[type="number"] {
-        width: 100%;
-        margin-bottom: 10px;
+    .categoryBtn, button {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    input[type="number"], select {
+        max-width: 90%;
+    }
+
+    #orderSummary {
+        width: 90%;
     }
 
     #orderList li {
@@ -272,33 +132,8 @@ input[type="number"] {
 }
 
 @media (max-width: 480px) {
-    button {
+    button, .categoryBtn {
         font-size: 16px;
         padding: 10px;
     }
-}
-
-
-/* Estilo de los botones */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    background-color: #007bff;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin: 10px auto; /* Añadido para centrar y dar margen */
-    display: block;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Contenedor de botones */
-.button-container {
-    text-align: center;
-    margin-top: 20px; /* Espacio superior */
 }
