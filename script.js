@@ -20,7 +20,7 @@ const prices = {
     'Tranca': 40.00,
     'Tranca Surtida': 50.00,
     'Tranca de Puerco y Chistorra': 45.00,
-    'Tranca de Puertco y Chorizo': 45.00,
+    'Tranca de Puerco y Chorizo': 45.00,
     'Tranca Surtida Especial': 55.00,
     'Coca Cola': 20.00,
     'Licuado de Chocomilk': 40.00,
@@ -105,56 +105,117 @@ document.getElementById('generatePdfBtn').addEventListener('click', function() {
         return;
     }
 
-    const doc = new jsPDF({ unit: 'mm', format: [80, 150] }); // Ajuste del tamaño del ticket
+    // Crear un PDF temporal para calcular la altura necesaria
+    let tempDoc = new jsPDF({ unit: 'mm', format: [80, 150] });
     let yPosition = 10;
+    const maxLineWidth = 50;  // Máximo ancho para texto antes de ser dividido
+    const itemSpacing = 15;   // Espacio adicional entre nombre del producto y precio
 
     // Encabezado del negocio
+    tempDoc.setFontSize(14);
+    tempDoc.setFont('courier', 'bold'); 
+    tempDoc.text('*** TAQUERIA GOMEZ ***', 40, yPosition, { align: 'center' });
+    yPosition += 10;
+
+    tempDoc.setFontSize(10);
+    tempDoc.setFont('courier', 'normal');
+    tempDoc.text('Tel: 982 130 3504', 40, yPosition, { align: 'center' });
+    yPosition += 5;
+
+    tempDoc.text('--------------------------------', 40, yPosition, { align: 'center' });
+    yPosition += 10;
+
+    tempDoc.text('Orden:', 10, yPosition);
+    yPosition += 7;
+
+    orderItems.forEach(item => {
+        const productNameLines = tempDoc.splitTextToSize(`${item.quantity} x ${item.product}`, maxLineWidth);
+
+        productNameLines.forEach((line, index) => {
+            if (index === 0) {
+                tempDoc.text(line, 10, yPosition);
+                tempDoc.text(`$${item.price.toFixed(2)}`, 10 + itemSpacing + maxLineWidth, yPosition, { align: 'right' });
+            } else {
+                tempDoc.text(line, 10, yPosition);
+            }
+            yPosition += 7;
+        });
+    });
+
+    yPosition += 5;
+    tempDoc.text('--------------------------------', 40, yPosition, { align: 'center' });
+    yPosition += 10;
+
+    tempDoc.setFontSize(12);
+    tempDoc.setFont('courier', 'bold');
+    tempDoc.text(`TOTAL: $${total.toFixed(2)} MXN`, 10, yPosition);
+
+    yPosition += 10;
+    tempDoc.setFontSize(10);
+    tempDoc.setFont('courier', 'normal');
+    tempDoc.text(`Titular: ${name}`, 10, yPosition);
+
+    yPosition += 10;
+    tempDoc.text('--------------------------------', 40, yPosition, { align: 'center' });
+
+    yPosition += 10;
+    tempDoc.setFontSize(10);
+    tempDoc.setFont('courier', 'italic');
+    tempDoc.text('Gracias por su compra!', 40, yPosition, { align: 'center' });
+
+    // Determinar la altura final del PDF basado en el contenido
+    const finalHeight = yPosition + 20;
+    let doc = new jsPDF({ unit: 'mm', format: [80, Math.max(150, finalHeight)] });
+
+    // Reiniciar y recrear el contenido en el documento final
+    yPosition = 10;
+
     doc.setFontSize(14);
-    doc.setFont('courier', 'bold'); // Fuente monoespaciada
+    doc.setFont('courier', 'bold'); 
     doc.text('*** TAQUERIA GOMEZ ***', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
-    // Número de contacto
     doc.setFontSize(10);
     doc.setFont('courier', 'normal');
     doc.text('Tel: 982 130 3504', 40, yPosition, { align: 'center' });
     yPosition += 5;
 
-    // Línea separadora
     doc.text('--------------------------------', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
-    // Detalles de la orden
     doc.text('Orden:', 10, yPosition);
     yPosition += 7;
 
     orderItems.forEach(item => {
-        doc.text(`${item.quantity} x ${item.product}`, 10, yPosition);
-        doc.text(`$${item.price.toFixed(2)}`, 70, yPosition, { align: 'right' });
-        yPosition += 7;
+        const productNameLines = doc.splitTextToSize(`${item.quantity} x ${item.product}`, maxLineWidth);
+
+        productNameLines.forEach((line, index) => {
+            if (index === 0) {
+                doc.text(line, 10, yPosition);
+                doc.text(`$${item.price.toFixed(2)}`, 10 + itemSpacing + maxLineWidth, yPosition, { align: 'right' });
+            } else {
+                doc.text(line, 10, yPosition);
+            }
+            yPosition += 7;
+        });
     });
 
-    // Línea separadora
     yPosition += 5;
     doc.text('--------------------------------', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
-    // Total de la compra
     doc.setFontSize(12);
     doc.setFont('courier', 'bold');
     doc.text(`TOTAL: $${total.toFixed(2)} MXN`, 10, yPosition);
 
-    // Nombre de la persona que ordenó
     yPosition += 10;
     doc.setFontSize(10);
     doc.setFont('courier', 'normal');
     doc.text(`Titular: ${name}`, 10, yPosition);
 
-    // Línea separadora
     yPosition += 10;
     doc.text('--------------------------------', 40, yPosition, { align: 'center' });
 
-    // Mensaje de agradecimiento
     yPosition += 10;
     doc.setFontSize(10);
     doc.setFont('courier', 'italic');
