@@ -1,8 +1,10 @@
-// Cargar la librería jsPDF desde CDN
+//jsPDF desde CDN para exportar en PDF
 const script = document.createElement('script');
 script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js";
 document.head.appendChild(script);
 
+
+//array de precios
 const prices = {
     'Tacos': 15.00,
     'Tacos Surtidos': 20.00,
@@ -28,23 +30,32 @@ const prices = {
     'Licuado de Platano': 40.00
 };
 
+
+//Suma total y array de la orden
 let total = 0;
 let orderItems = [];
 
-document.getElementById('generateOrderBtn').addEventListener('click', function() {
+
+
+document.getElementById('generateOrderBtn').addEventListener('click', function () {
     document.getElementById('orderSections').style.display = 'block';
 });
 
+
+//Funcion para cambiar de categoria entre 
 function showCategory(category) {
     document.getElementById('comidaSection').style.display = 'none';
     document.getElementById('bebidaSection').style.display = 'none';
-    
+
     if (category === 'comida') {
         document.getElementById('comidaSection').style.display = 'block';
     } else if (category === 'bebida') {
         document.getElementById('bebidaSection').style.display = 'block';
     }
 }
+
+
+
 
 function addProduct(category) {
     const productList = document.getElementById('orderList');
@@ -69,6 +80,7 @@ function addProduct(category) {
 
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Eliminar';
+    deleteBtn.id = 'EliminarBtn'; //Id para el boton de elimnar de las ordenes
     deleteBtn.onclick = () => deleteProduct(orderItem, listItem);
     listItem.appendChild(deleteBtn);
 
@@ -96,7 +108,7 @@ function updateTotal() {
     }
 }
 
-document.getElementById('generatePdfBtn').addEventListener('click', function() {
+document.getElementById('generatePdfBtn').addEventListener('click', function () {
     const { jsPDF } = window.jspdf;
 
     const name = prompt('Ingrese el nombre del Titular:');
@@ -113,7 +125,7 @@ document.getElementById('generatePdfBtn').addEventListener('click', function() {
 
     // Encabezado del negocio
     tempDoc.setFontSize(14);
-    tempDoc.setFont('courier', 'bold'); 
+    tempDoc.setFont('courier', 'bold');
     tempDoc.text('*** TAQUERIA GOMEZ ***', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
@@ -171,7 +183,7 @@ document.getElementById('generatePdfBtn').addEventListener('click', function() {
     yPosition = 10;
 
     doc.setFontSize(14);
-    doc.setFont('courier', 'bold'); 
+    doc.setFont('courier', 'bold');
     doc.text('*** TAQUERIA GOMEZ ***', 40, yPosition, { align: 'center' });
     yPosition += 10;
 
@@ -221,7 +233,7 @@ document.getElementById('generatePdfBtn').addEventListener('click', function() {
     doc.setFont('courier', 'italic');
     doc.text('Gracias por su compra!', 40, yPosition, { align: 'center' });
 
-    // Guardar el PDF con el nombre en el formato solicitado
-    const fileName = `ORDEN-TAQUERIA-${name}.pdf`;
+    // Guardar el PDF 
+    const fileName = `ORDEN-TAQUERIA-GOMEZ-${name}.pdf`;
     doc.save(fileName);
 });
