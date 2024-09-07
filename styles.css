@@ -108,7 +108,7 @@ h2, h3 {
 }
 
 #orderList li {
-    padding: 5px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -128,11 +128,15 @@ h2, h3 {
 }
 
 
-
 #EliminarBtn {
+    margin-top: 5px;
     background-color: red;
 }
 
 #generatePdfBtn{
     background-color: blue;
+}
+
+#totalContainer{
+    font-size: 20px;
 }
