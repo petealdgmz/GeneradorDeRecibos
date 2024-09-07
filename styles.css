@@ -132,3 +132,7 @@ h2, h3 {
 #EliminarBtn {
     background-color: red;
 }
+
+#generatePdfBtn{
+    background-color: blue;
+}
